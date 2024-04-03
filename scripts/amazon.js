@@ -1,6 +1,6 @@
-let productsHTML='';
-products.forEach((product) =>{
-  productsHTML+=`<div class="product-container">
+let productsHTML = '';
+products.forEach((product) => {
+  productsHTML += `<div class="product-container">
   <div class="product-image-container">
     <img class="product-image"
       src="${product.image}">
@@ -12,14 +12,14 @@ products.forEach((product) =>{
 
   <div class="product-rating-container">
     <img class="product-rating-stars"
-      src="images/ratings/rating-${product.rating.stars*10}.png">
+      src="images/ratings/rating-${product.rating.stars * 10}.png">
     <div class="product-rating-count link-primary">
       ${product.rating.count}
     </div>
   </div>
 
   <div class="product-price">
-    $${(product.priceCents/100).toFixed(2)}
+    $${(product.priceCents / 100).toFixed(2)}
   </div>
 
   <div class="product-quantity-container">
@@ -48,33 +48,40 @@ products.forEach((product) =>{
             Add to Cart
           </button>
         </div>`
-// document.querySelector('products-grid').innerHTML+=html
+  // document.querySelector('products-grid').innerHTML+=html
 
 })
-document.querySelector('.js-products-grid').innerHTML+=productsHTML;
-document.querySelectorAll('.js-add-to-cart').forEach( (button) =>
-{
-  button.addEventListener('click', () =>
-  {
-    let index=-1;
+document.querySelector('.js-products-grid').innerHTML += productsHTML;
+ // Change const to let
 
-    const productId=button.dataset.productId;
-    cart.forEach((item,i) =>{
-      if (productId===item.productId){
-        index=i;
+let CartQuantity = 0; // Change const to let
+
+document.querySelectorAll('.js-add-to-cart').forEach((button) => {
+  button.addEventListener('click', () => {
+    let index = -1;
+
+    const productId = button.dataset.productId;
+    cart.forEach((item, i) => {
+      if (productId === item.productId) {
+        index = i;
       }
-    })
-    if (index!==-1){
-      cart[index].quantity+=1;
-    }
-    else{
-    cart.push({
-      productId:productId,
-      quantity:1
     });
-  }
-    console.log(cart)
-  });
-  
-});
 
+    if (index !== -1) {
+      cart[index].quantity += 1;
+    } else {
+      cart.push({
+        productId: productId,
+        quantity: 1
+      });
+    }
+
+    // Update CartQuantity here
+    CartQuantity = 0;
+    cart.forEach((item) => {
+      CartQuantity += item.quantity;
+    });
+    // Update cart quantity display
+    document.querySelector('.js-cart-quantity').innerHTML = CartQuantity;
+  });
+});
