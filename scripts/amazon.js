@@ -71,5 +71,6 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
     const productId = button.dataset.productId;
     addedToCart(productId);
     updateCartQuantity();
+    console.log(cart);
   });
 });
