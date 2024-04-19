@@ -68,3 +68,15 @@ function savetoStorage(){
 
 }
 
+export function updateCartQuantity() {
+  let CartQuantity = 0;
+  
+  cart.forEach((cartItem) => {
+    CartQuantity += cartItem.quantity;
+  });
+  // Update cart quantity display
+  return CartQuantity;
+  
+
+}
+
