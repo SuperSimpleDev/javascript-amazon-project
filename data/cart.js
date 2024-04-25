@@ -17,37 +17,39 @@ cart=[
   ];
   
 }
-
 export function addedToCart(productId) {
-  let index = -1;
-  cart.forEach((cartItem, i) => {
-    if (productId === cartItem.productId) {
-      index = i;
-    }
+  // Find the index of the product in the cart based on its productId
+  const index = cart.findIndex(cartItem => cartItem.productId === productId);
 
-  });
-  const addedToCart = document.querySelector(`.js-added-to-cart-${productId}`);
+  // Get the element to show "Added" message
+  const addedToCartElement = document.querySelector(`.js-added-to-cart-${productId}`);
 
-  if (addedToCart) {
-    addedToCart.innerHTML = `<img src="images/icons/checkmark.png"> Added`;
-    setTimeout(function () {
-      addedToCart.innerHTML = "";
-    }, 1300);
-  }
-  else {
-    console.error("Element with class 'js-added-to-cart' not found.");
-  }
-  if (index !== -1) {
-    cart[index].quantity += 1;
+  // If the element exists, display the checkmark and "Added" message
+  if (addedToCartElement) {
+      addedToCartElement.innerHTML = `<img src="images/icons/checkmark.png"> Added`;
+      // Remove the message after 1.3 seconds
+      setTimeout(() => {
+          addedToCartElement.innerHTML = "";
+      }, 1300);
   } else {
-    cart.push({
-      productId: productId,
-      quantity: 1
-    });
-
-    savetoStorage();
+      console.error(`Element with class 'js-added-to-cart-${productId}' not found.`);
   }
+
+  // If the product is found in the cart, increment the quantity
+  if (index !== -1) {
+      cart[index].quantity += 1;
+  } else {
+      // If the product is not found, add a new entry to the cart with quantity 1
+      cart.push({
+          productId: productId,
+          quantity: 1
+      });
+  }
+
+  // Save the updated cart to storage
+  savetoStorage();
 }
+
 
 export function removeFromCart(productid){
   const newCart=[];
