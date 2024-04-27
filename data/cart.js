@@ -16,6 +16,7 @@ function saveToStorage() {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
+<<<<<<< HEAD
 export function addToCart(productId) {
   let matchingItem;
 
@@ -65,3 +66,34 @@ export function updateDeliveryOption(productId, deliveryOptionId) {
 
   saveToStorage();
 }
+=======
+function savetoStorage(){
+  
+  localStorage.setItem('cart',JSON.stringify(cart));
+
+
+}
+
+export function updateCartQuantity() {
+  let CartQuantity = 0;
+  
+  cart.forEach((cartItem) => {
+    CartQuantity += cartItem.quantity;
+  });
+  // Update cart quantity display
+  return CartQuantity;
+  
+
+}
+
+export function updateQuantity(productId,newQuantity){
+  for (let i=0;i<cart.length;i++){
+    if (cart[i].productId===productId){
+      cart[i].quantity=newQuantity;
+      break;
+    }
+  }
+  savetoStorage();
+}
+
+>>>>>>> parent of 4012412 (make delivery options interactive)
