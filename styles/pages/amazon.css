@@ -141,7 +141,7 @@
   /* At first, the "Added to cart" message will
      be invisible. Use JavaScript to change the
      opacity and make it visible. */
-  opacity: 1;
+  opacity: 0;
 }
 
 .added-to-cart img {
