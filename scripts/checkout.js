@@ -1,4 +1,4 @@
-import { cart, removeFromCart, updateQuantity } from "../data/cart.js";
+import { cart, removeFromCart, updateQuantity, updateDeliveryOption } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
 import { updateCartQuantity } from "../data/cart.js";
@@ -24,13 +24,13 @@ cart.forEach((cartItem) => {
 
   // Check if a matching product was found
   if (matchingProduct) {
-    const deliveryOptionId=cartItem.deliveryOptionId;
+    const deliveryOptionId = cartItem.deliveryOptionId;
 
     let deliveryOption;
-    
-    deliveryOptions.forEach((option)=>{
-      if (option.id===deliveryOptionId){
-        deliveryOption=option;
+
+    deliveryOptions.forEach((option) => {
+      if (option.id === deliveryOptionId) {
+        deliveryOption = option;
 
       }
     });
@@ -40,9 +40,9 @@ cart.forEach((cartItem) => {
       'days'
     )
     const dateString = delivaryDate.format('dddd, MMMM D');
-   
 
-    const isChecked=deliveryOption.id===cartItem.deliveryOptionId;
+
+    const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
     // Construct HTML for the cart item
     const cartItemHtml = `
       <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
@@ -74,7 +74,7 @@ cart.forEach((cartItem) => {
           <div class="delivery-options-title">
             Choose a delivery option:
           </div>
-          ${deliveryOptionsHtml(matchingProduct,cartItem)}
+          ${deliveryOptionsHtml(matchingProduct, cartItem)}
         </div>
       </div>
     `;
@@ -84,7 +84,7 @@ cart.forEach((cartItem) => {
 
   }
 });
-function deliveryOptionsHtml(matchingProduct,cartItem) {
+function deliveryOptionsHtml(matchingProduct, cartItem) {
   let html = '';
   deliveryOptions.forEach((deliveryOption) => {
     const today = dayjs();
@@ -97,11 +97,13 @@ function deliveryOptionsHtml(matchingProduct,cartItem) {
       ? `FREE `
       : `$${formatCurrency(deliveryOption.priceCents)} - `;
 
-    const isChecked=deliveryOption.id===cartItem.deliveryOptionId;
-    html += `<div class="delivery-option">
+    const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
+    html += `<div class="delivery-option js-delivery-option" 
+    data-product-id="${matchingProduct.id}"
+    data-delivery-option-id="${deliveryOption.id}">
   <input type="radio" 
 
-  class="delivery-option-input" name="delivery-option-${matchingProduct.id}"  ${isChecked ?'checked':''}>
+  class="delivery-option-input" name="delivery-option-${matchingProduct.id}"  ${isChecked ? 'checked' : ''}>
   <label for="delivery-option-${matchingProduct.id}">
       <div>
           <div class="delivery-option-date">${dateString}</div>
@@ -168,5 +170,12 @@ document.querySelectorAll('.js-save-quantity-link').forEach((link) => {
   });
 });
 
+document.querySelectorAll('.js-delivery-option')
+  .forEach((element) => {
+    element.addEventListener('click', () => {
+      const { productId, deliveryOptionId } = element.dataset;
+      updateDeliveryOption(productId, deliveryOptionId);
+    });
 
+  });
 
