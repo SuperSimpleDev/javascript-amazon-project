@@ -3,7 +3,7 @@
   padding-left: 30px;
   padding-right: 30px;
 
-  margin-top: 140px;
+ margin-top: 140px;
   margin-bottom: 100px;
 
   /* margin-left: auto;
@@ -209,3 +209,21 @@
   margin-top: 11px;
   margin-bottom: 15px;
 }
+.quantity-input{
+width: 30px;
+
+}
+.quantity-input,.save-quantity-link{
+  display: none;
+}
+
+.is-editing-quantity .quantity-input,
+.is-editing-quantity .save-quantity-link {
+    display: initial;
+}
+
+.is-editing-quantity .quantity-display,
+.is-editing-quantity .js-update-quantity-link {
+    display: none;
+}
+
