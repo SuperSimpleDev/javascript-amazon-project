@@ -14,7 +14,7 @@ export function renderOrderSummary(){
   cart.forEach((cartItem) => {
     const productId = cartItem.productId;
     let matchingProduct;
-    console.log(products.length)
+    
     // Find the product matching the cart item
     for (let i = 0; i < products.length; i++) {
       if (productId === products[i].id) {
@@ -133,7 +133,7 @@ export function renderOrderSummary(){
         document.querySelector('.js-return-to-home-link').innerHTML = `${updateCartQuantity()} items`;
 
 
-
+        location.reload();
       });
     });
 
@@ -145,8 +145,10 @@ export function renderOrderSummary(){
         const cartItemContainer = document.querySelector(`.js-cart-item-container-${productId}`)
         cartItemContainer.classList.add('is-editing-quantity');
         // console.log(cartItemContainer);
+        
 
       });
+      
     });
 
   document.querySelectorAll('.js-save-quantity-link').forEach((link) => {
@@ -168,6 +170,7 @@ export function renderOrderSummary(){
         document.querySelector(`.quantity-label-${productId}`).innerHTML = newQuantity;
         document.querySelector('.js-return-to-home-link').innerHTML = `${updateCartQuantity()} items`;
       }
+      location.reload();
     });
   });
 
