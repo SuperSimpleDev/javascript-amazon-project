@@ -96,4 +96,7 @@ export function updateQuantity(productId,newQuantity){
   savetoStorage();
 }
 
+<<<<<<< HEAD
+>>>>>>> parent of 4012412 (make delivery options interactive)
+=======
 >>>>>>> parent of 4012412 (make delivery options interactive)
