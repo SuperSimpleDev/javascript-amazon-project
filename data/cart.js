@@ -1,4 +1,7 @@
-export let cart = JSON.parse(localStorage.getItem('cart'));
+export let cart ;
+loadFromStorage();
+export function loadFromStorage(){
+  cart= JSON.parse(localStorage.getItem('cart'));
 
 if(!cart){
 cart=[
@@ -19,6 +22,7 @@ cart=[
   }
   ];
   
+}
 }
 export function addedToCart(productId) {
   // Find the index of the product in the cart based on its productId
