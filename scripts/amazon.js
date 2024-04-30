@@ -47,6 +47,8 @@ products.forEach((product) => {
       <option value="10">10</option>
     </select>
   </div>
+        ${product.extraInfoHtml()}
+
           <div class="product-spacer"></div>
 
           <div class="added-to-cart js-added-to-cart-${product.id}">
@@ -57,7 +59,9 @@ products.forEach((product) => {
           data-product-id="${product.id}">
             Add to Cart
           </button>
-        </div>`
+        </div>
+        
+        `
   // document.querySelector('products-grid').innerHTML+=html
 
 })
