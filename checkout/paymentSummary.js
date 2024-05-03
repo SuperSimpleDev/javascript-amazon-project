@@ -30,14 +30,12 @@ export function renderPaymentSummary(){
 
   });
 
-  console.log(productPriceCents);
-  console.log(deliveryPriceCents);
+ 
   let totalBeforeTaxCents=productPriceCents+deliveryPriceCents;
-  console.log(totalBeforeTaxCents);
+  
   let taxCents=0.1*totalBeforeTaxCents;
   let total=totalBeforeTaxCents+taxCents;
-  console.log(taxCents);
-  console.log(productQuantity);
+
   const paymentSummaryHtml=`<div class="payment-summary-title">
   Order Summary
 </div>
