@@ -1,7 +1,7 @@
 import { cart, addedToCart, updateCartQuantity } from "../data/cart.js";
-import { loadProducts, products } from "../data/products.js";
+import { loadProducts, loadProductsFetch, products } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
-loadProducts(renderProductsGrid);
+loadProductsFetch(renderProductsGrid);
 
 function renderProductsGrid() {
   if (updateCartQuantity() === 0) {
