@@ -27,6 +27,19 @@ const products = [
       "sports",
       "basketballs"
     ]
+  },{
+    id: "14rvbae-wef23",
+    image: "images/products/box1_image.jpg",
+    name:"Home & care",
+    rating: {
+      stars: 3,
+      count:232,
+    },
+    priceCents:3999,
+    keywords:[
+      "home"
+      // "decoration"
+    ]
   },
   {
     id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
@@ -655,6 +668,76 @@ const products = [
       "hoodies",
       "apparel",
       "mens"
+    ]
+  },{
+    id: "bc2847easd23",
+    image: "images/products/box2_image.jpg",
+    name: "Health & Presonal care",
+    rating: {
+      stars: 4.5,
+      count: 357
+    },
+    priceCents: 2100,
+    keywords: [
+      "clean",
+      "presonal care",
+      "mens"
+    ]
+  },{
+    id: "bc2847e9-5323-403f-b7cf-57fde044a955",
+    image: "images/products/fit.jpg",
+    name: "For your Fitness needs",
+    rating: {
+      stars: 4.5,
+      count: 3157
+    },
+    priceCents: 22400,
+    keywords: [
+      "sweaters",
+      "hoodies",
+      "apparel",
+      "mens"
+    ]
+  },{
+    id: "adf343f-b7cf-57fde044a955",
+    image: "images/products/gitter.jpg",
+    name: "Creat with strip lights",
+    rating: {
+      stars: 4,
+      count: 3157
+    },
+    priceCents: 1500,
+    keywords: [
+      "light",
+      "rgb",
+      "gitter",
+    ]
+  },{
+    id: "bc2847e9-5323-403f-b7cf-57fde044a955",
+    image: "images/products/phone.jpg",
+    name: "S22-Ultra SUMSANG",
+    rating: {
+      stars: 5,
+      count: 3157
+    },
+    priceCents: 52400,
+    keywords: [
+      "sumsang",
+      "phone",
+      "ultra",
+    ]
+  },{
+    id: "bc2847e9-5323-403f-b7cf-57fde044a955",
+    image: "images/products/box3_image.jpg",
+    name: "Table & Chair",
+    rating: {
+      stars: 3,
+      count: 37
+    },
+    priceCents: 22400,
+    keywords: [
+      "table",
+      "chair",
     ]
   }
 ];
