@@ -51,10 +51,9 @@ products.forEach((product) => {
 });
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
-    let addedMessageTimeoutId;
     button.addEventListener('click',()=>{
       const {productId} = button.dataset;
       addToCart(productId);
-      updateCartQuantity();      
+      updateCartQuantity(productId);      
     });
   });

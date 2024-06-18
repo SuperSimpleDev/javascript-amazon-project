@@ -17,7 +17,8 @@ export function addToCart(productId){
         });
       };
 };
-export function updateCartQuantity(){
+export function updateCartQuantity(productId){
+  let addedMessageTimeoutId;
   let cartQuantity = 0;
       cart.forEach((CartItem)=>{
         cartQuantity += CartItem.quantity;
