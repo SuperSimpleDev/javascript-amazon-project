@@ -58,3 +58,4 @@ document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
       updateCartQuantity(productId);      
     });
   });
+document.querySelector('.js-cart-quantity').innerHTML  = updateCartQuantity();
