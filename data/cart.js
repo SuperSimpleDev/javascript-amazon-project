@@ -36,7 +36,7 @@ export function calculateCartQuantity(){
         cartQuantity += CartItem.quantity;
       });
       return cartQuantity;
-    }
+    };
 export function updateCartQuantity(productId){
 let addedMessageTimeoutId;
 document.querySelector('.js-cart-quantity').innerHTML = calculateCartQuantity();

@@ -104,3 +104,10 @@ function updateCartQuantity(){
 document.querySelector('.js-return-to-home-link').innerHTML =`${cartQuantity} items`;
 };
 updateCartQuantity();
+// document.querySelectorAll('.update-quantity-link').forEach((link)=>{
+//   link.addEventListener('click',()=>{
+//   const {productId} = link.dataset;
+//     if(productId === cart)
+//     console.log(productId)
+//     });
+//   });
