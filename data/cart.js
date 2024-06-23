@@ -42,10 +42,7 @@ let addedMessageTimeoutId;
 document.querySelector('.js-cart-quantity').innerHTML = calculateCartQuantity();
 const addedMessage = document.querySelector(`.js-added-to-cart-${productId}`);
 addedMessage.classList.add('added-to-cart-visible');
-
-
-if(addedMessageTimeoutId){clearTimeout(addedMessageTimeoutId);
-}
+if(addedMessageTimeoutId){clearTimeout(addedMessageTimeoutId);}
 const timeoutId = setTimeout(()=>{
   addedMessage.classList.remove('added-to-cart-visible')
 },1500);
@@ -61,3 +58,11 @@ export function removeFromCart(productId){
   cart = newCart;
   saveToStorage();
 };
+export function updateQuantity(productId,newQuantity){
+let matchingItem;
+cart.forEach((CartItem) => {
+  if(productId === CartItem.productId){
+    matchingItem = CartItem;}
+});
+matchingItem.quantity = newQuantity;
+saveToStorage();}
