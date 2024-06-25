@@ -28,8 +28,8 @@ export function addToCart(productId){
       }else{
         cart.push({
           productId,
-          quantity,
-          deliveryOptionsId: '1',
+          quantity: 1,
+          deliveryOptionsId: '3',
         });
       };
       saveToStorage();
